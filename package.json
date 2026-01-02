@@ -33,10 +33,10 @@
     "engines": {
         "node": ">=14.0.0"
     },
-    "author": "",
+    "author": "taufiksu",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/imboost/node-red-contrib-davis.git"
     }
 }
