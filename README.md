@@ -61,6 +61,7 @@ davis.toast('Success!', 'success');
 
 ## File Structure
 
+```text
 ~/.node-red/davis/{directory}/
 ├── server.js           ← Custom Backend API
 └── src/
@@ -74,6 +75,7 @@ davis.toast('Success!', 'success');
     ├── query-builder.html  ← Chart Builder
     ├── ui-builder.html     ← Dashboard Builder
     └── viewer.html         ← Dashboard Viewer
+```
 
 ## License
 
