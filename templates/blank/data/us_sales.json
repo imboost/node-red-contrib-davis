@@ -1,0 +1,68 @@
+[
+    {
+        "state": "California",
+        "sales": 52000,
+        "orders": 1200,
+        "customers": 450
+    },
+    {
+        "state": "Texas",
+        "sales": 48000,
+        "orders": 980,
+        "customers": 380
+    },
+    {
+        "state": "New York",
+        "sales": 45000,
+        "orders": 1100,
+        "customers": 410
+    },
+    {
+        "state": "Florida",
+        "sales": 32000,
+        "orders": 750,
+        "customers": 290
+    },
+    {
+        "state": "Illinois",
+        "sales": 28000,
+        "orders": 600,
+        "customers": 220
+    },
+    {
+        "state": "Pennsylvania",
+        "sales": 26000,
+        "orders": 580,
+        "customers": 210
+    },
+    {
+        "state": "Ohio",
+        "sales": 21000,
+        "orders": 490,
+        "customers": 180
+    },
+    {
+        "state": "Georgia",
+        "sales": 19000,
+        "orders": 450,
+        "customers": 170
+    },
+    {
+        "state": "North Carolina",
+        "sales": 18000,
+        "orders": 420,
+        "customers": 160
+    },
+    {
+        "state": "Michigan",
+        "sales": 17000,
+        "orders": 400,
+        "customers": 150
+    },
+    {
+        "state": "Washington",
+        "sales": 16500,
+        "orders": 390,
+        "customers": 145
+    }
+]

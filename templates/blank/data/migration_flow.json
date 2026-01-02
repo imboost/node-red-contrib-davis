@@ -1,0 +1,77 @@
+[
+    {
+        "Source": "USA",
+        "Target": "Canada",
+        "Value": 50
+    },
+    {
+        "Source": "USA",
+        "Target": "UK",
+        "Value": 60
+    },
+    {
+        "Source": "USA",
+        "Target": "Germany",
+        "Value": 30
+    },
+    {
+        "Source": "Canada",
+        "Target": "USA",
+        "Value": 45
+    },
+    {
+        "Source": "Canada",
+        "Target": "UK",
+        "Value": 20
+    },
+    {
+        "Source": "UK",
+        "Target": "USA",
+        "Value": 55
+    },
+    {
+        "Source": "UK",
+        "Target": "Germany",
+        "Value": 40
+    },
+    {
+        "Source": "Germany",
+        "Target": "USA",
+        "Value": 25
+    },
+    {
+        "Source": "Germany",
+        "Target": "France",
+        "Value": 35
+    },
+    {
+        "Source": "France",
+        "Target": "Germany",
+        "Value": 30
+    },
+    {
+        "Source": "France",
+        "Target": "UK",
+        "Value": 25
+    },
+    {
+        "Source": "China",
+        "Target": "USA",
+        "Value": 80
+    },
+    {
+        "Source": "China",
+        "Target": "Japan",
+        "Value": 40
+    },
+    {
+        "Source": "Japan",
+        "Target": "USA",
+        "Value": 30
+    },
+    {
+        "Source": "Japan",
+        "Target": "China",
+        "Value": 35
+    }
+]

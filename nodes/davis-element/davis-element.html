@@ -1,0 +1,116 @@
+<!--
+    Node-RED Davis - Element Node Editor
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('davis-element', {
+        category: 'davis',
+        color: '#d7d1ff',
+        defaults: {
+            name: { value: '' },
+            elementType: { value: 'div' },
+            elementId: { value: '' },
+            parent: { value: 'body' },
+            position: { value: 'last' },
+            bsClass: { value: '' }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-cube',
+        label: function () {
+            return this.name || `${this.elementType} element`;
+        },
+        paletteLabel: 'davis element',
+        labelStyle: function () {
+            return this.name ? 'node_label_italic' : '';
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="davis-element">
+    <div class="form-row">
+        <label for="node-input-elementType"><i class="fa fa-code"></i> Element</label>
+        <select id="node-input-elementType">
+            <option value="div">div</option>
+            <option value="p">p (paragraph)</option>
+            <option value="span">span</option>
+            <option value="h1">h1</option>
+            <option value="h2">h2</option>
+            <option value="h3">h3</option>
+            <option value="button">button</option>
+            <option value="input">input</option>
+            <option value="textarea">textarea</option>
+            <option value="img">img</option>
+            <option value="a">a (link)</option>
+            <option value="ul">ul (list)</option>
+            <option value="ol">ol (ordered list)</option>
+            <option value="li">li (list item)</option>
+            <option value="table">table</option>
+            <option value="form">form</option>
+            <option value="article">article</option>
+            <option value="section">section</option>
+            <option value="header">header</option>
+            <option value="footer">footer</option>
+            <option value="nav">nav</option>
+            <option value="card">div.card (Bootstrap)</option>
+            <option value="alert">div.alert (Bootstrap)</option>
+            <option value="badge">span.badge (Bootstrap)</option>
+        </select>
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-bsClass"><i class="fa fa-css3"></i> BS Class</label>
+        <input type="text" id="node-input-bsClass" placeholder="Bootstrap classes (e.g. btn btn-primary)">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-elementId"><i class="fa fa-hashtag"></i> ID</label>
+        <input type="text" id="node-input-elementId" placeholder="Optional element ID">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-parent"><i class="fa fa-sitemap"></i> Parent</label>
+        <input type="text" id="node-input-parent" placeholder="CSS selector for parent (default: body)">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-position"><i class="fa fa-sort"></i> Position</label>
+        <select id="node-input-position">
+            <option value="last">Last (append)</option>
+            <option value="first">First (prepend)</option>
+            <option value="replace">Replace parent content</option>
+        </select>
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Optional node name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="davis-element">
+    <p>Create Bootstrap HTML elements dynamically from Node-RED messages.</p>
+    
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">string | object</span></dt>
+        <dd>The content (innerHTML/slot) for the element.</dd>
+        <dt class="optional">class <span class="property-type">string</span></dt>
+        <dd>Bootstrap CSS classes to apply.</dd>
+    </dl>
+    
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>_davis <span class="property-type">object</span></dt>
+        <dd>Davis command object for front-end processing.</dd>
+    </dl>
+    
+    <h3>Bootstrap Classes</h3>
+    <p>You can use any Bootstrap 5 classes like:</p>
+    <ul>
+        <li><code>btn btn-primary</code></li>
+        <li><code>alert alert-success</code></li>
+        <li><code>card-body</code></li>
+        <li><code>text-center text-muted</code></li>
+    </ul>
+</script>

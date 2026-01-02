@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1001,
+        "customer": "John Smith",
+        "product": "Laptop Pro",
+        "quantity": 1,
+        "total": 1299,
+        "status": "Delivered",
+        "date": "2024-01-15"
+    },
+    {
+        "id": 1002,
+        "customer": "Sarah Johnson",
+        "product": "Wireless Mouse",
+        "quantity": 2,
+        "total": 98,
+        "status": "Delivered",
+        "date": "2024-01-18"
+    },
+    {
+        "id": 1003,
+        "customer": "Mike Brown",
+        "product": "Standing Desk",
+        "quantity": 1,
+        "total": 599,
+        "status": "Shipped",
+        "date": "2024-02-05"
+    },
+    {
+        "id": 1004,
+        "customer": "Emily Davis",
+        "product": "Monitor 27\"",
+        "quantity": 2,
+        "total": 898,
+        "status": "Processing",
+        "date": "2024-02-12"
+    },
+    {
+        "id": 1005,
+        "customer": "David Wilson",
+        "product": "Office Chair",
+        "quantity": 1,
+        "total": 349,
+        "status": "Delivered",
+        "date": "2024-02-20"
+    },
+    {
+        "id": 1006,
+        "customer": "Lisa Anderson",
+        "product": "Keyboard",
+        "quantity": 3,
+        "total": 387,
+        "status": "Shipped",
+        "date": "2024-03-01"
+    },
+    {
+        "id": 1007,
+        "customer": "James Taylor",
+        "product": "USB-C Hub",
+        "quantity": 2,
+        "total": 158,
+        "status": "Delivered",
+        "date": "2024-03-08"
+    },
+    {
+        "id": 1008,
+        "customer": "Jennifer Martin",
+        "product": "Webcam HD",
+        "quantity": 1,
+        "total": 99,
+        "status": "Pending",
+        "date": "2024-03-15"
+    }
+]

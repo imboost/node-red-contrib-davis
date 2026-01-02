@@ -1,0 +1,62 @@
+[
+    {
+        "country": "Germany",
+        "users": 15000,
+        "sessions": 45000,
+        "bounce_rate": 0.45
+    },
+    {
+        "country": "United Kingdom",
+        "users": 12000,
+        "sessions": 38000,
+        "bounce_rate": 0.42
+    },
+    {
+        "country": "France",
+        "users": 11000,
+        "sessions": 35000,
+        "bounce_rate": 0.48
+    },
+    {
+        "country": "Italy",
+        "users": 9000,
+        "sessions": 28000,
+        "bounce_rate": 0.51
+    },
+    {
+        "country": "Spain",
+        "users": 8500,
+        "sessions": 26000,
+        "bounce_rate": 0.49
+    },
+    {
+        "country": "Netherlands",
+        "users": 6000,
+        "sessions": 19000,
+        "bounce_rate": 0.38
+    },
+    {
+        "country": "Sweden",
+        "users": 4000,
+        "sessions": 12000,
+        "bounce_rate": 0.35
+    },
+    {
+        "country": "Poland",
+        "users": 5500,
+        "sessions": 16000,
+        "bounce_rate": 0.55
+    },
+    {
+        "country": "Belgium",
+        "users": 3500,
+        "sessions": 11000,
+        "bounce_rate": 0.41
+    },
+    {
+        "country": "Austria",
+        "users": 2800,
+        "sessions": 9000,
+        "bounce_rate": 0.39
+    }
+]

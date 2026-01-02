@@ -1,0 +1,127 @@
+/* Davis - Additional Custom Styles */
+/* Bootstrap 5 is the primary framework, these are supplementary */
+
+/* Custom status indicators */
+.davis-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.davis-status::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.davis-status-connected::before {
+    background: var(--bs-success);
+}
+
+.davis-status-disconnected::before {
+    background: var(--bs-danger);
+}
+
+.davis-status-pending::before {
+    background: var(--bs-warning);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Message styling */
+.davis-message {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--bs-light);
+    border-left: 3px solid var(--bs-primary);
+    border-radius: 0 0.25rem 0.25rem 0;
+    animation: davis-slideIn 0.3s ease;
+}
+
+.davis-message-success {
+    border-left-color: var(--bs-success);
+}
+
+.davis-message-warning {
+    border-left-color: var(--bs-warning);
+}
+
+.davis-message-danger {
+    border-left-color: var(--bs-danger);
+}
+
+@keyframes davis-slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Code/Pre styling that complements Bootstrap */
+.davis-code {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.875rem;
+}
+
+.davis-pre {
+    background: var(--bs-light);
+    padding: 1rem;
+    border-radius: 0.375rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* Loading spinner */
+.davis-loading {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: davis-spin 0.75s linear infinite;
+}
+
+@keyframes davis-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Card enhancements */
+.davis-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+/* Gradient backgrounds */
+.davis-gradient-primary {
+    background: linear-gradient(135deg, var(--bs-primary), #6f42c1);
+}
+
+.davis-gradient-success {
+    background: linear-gradient(135deg, var(--bs-success), #20c997);
+}
+
+.davis-gradient-danger {
+    background: linear-gradient(135deg, var(--bs-danger), #e83e8c);
+}

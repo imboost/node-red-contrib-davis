@@ -1,0 +1,32 @@
+[
+    {
+        "metric": "Sales Target",
+        "value": 75,
+        "min": 0,
+        "max": 100
+    },
+    {
+        "metric": "Customer Satisfaction",
+        "value": 85,
+        "min": 0,
+        "max": 100
+    },
+    {
+        "metric": "Server Uptime",
+        "value": 99.5,
+        "min": 0,
+        "max": 100
+    },
+    {
+        "metric": "Budget Usage",
+        "value": 62,
+        "min": 0,
+        "max": 100
+    },
+    {
+        "metric": "Project Completion",
+        "value": 45,
+        "min": 0,
+        "max": 100
+    }
+]

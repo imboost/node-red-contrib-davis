@@ -1,0 +1,98 @@
+[
+    {
+        "month": "Jan",
+        "quarter": "Q1",
+        "year": 2024,
+        "revenue": 12500,
+        "orders": 145,
+        "customers": 89
+    },
+    {
+        "month": "Feb",
+        "quarter": "Q1",
+        "year": 2024,
+        "revenue": 14200,
+        "orders": 168,
+        "customers": 102
+    },
+    {
+        "month": "Mar",
+        "quarter": "Q1",
+        "year": 2024,
+        "revenue": 15800,
+        "orders": 185,
+        "customers": 115
+    },
+    {
+        "month": "Apr",
+        "quarter": "Q2",
+        "year": 2024,
+        "revenue": 13400,
+        "orders": 156,
+        "customers": 95
+    },
+    {
+        "month": "May",
+        "quarter": "Q2",
+        "year": 2024,
+        "revenue": 16200,
+        "orders": 192,
+        "customers": 125
+    },
+    {
+        "month": "Jun",
+        "quarter": "Q2",
+        "year": 2024,
+        "revenue": 18500,
+        "orders": 215,
+        "customers": 142
+    },
+    {
+        "month": "Jul",
+        "quarter": "Q3",
+        "year": 2024,
+        "revenue": 17200,
+        "orders": 198,
+        "customers": 132
+    },
+    {
+        "month": "Aug",
+        "quarter": "Q3",
+        "year": 2024,
+        "revenue": 19800,
+        "orders": 235,
+        "customers": 155
+    },
+    {
+        "month": "Sep",
+        "quarter": "Q3",
+        "year": 2024,
+        "revenue": 21200,
+        "orders": 248,
+        "customers": 168
+    },
+    {
+        "month": "Oct",
+        "quarter": "Q4",
+        "year": 2024,
+        "revenue": 22500,
+        "orders": 265,
+        "customers": 178
+    },
+    {
+        "month": "Nov",
+        "quarter": "Q4",
+        "year": 2024,
+        "revenue": 25800,
+        "orders": 298,
+        "customers": 195
+    },
+    {
+        "month": "Dec",
+        "quarter": "Q4",
+        "year": 2024,
+        "revenue": 28500,
+        "orders": 332,
+        "customers": 215
+    }
+]

@@ -1,0 +1,87 @@
+{
+    "name": "CEO",
+    "children": [
+        {
+            "name": "VP Product",
+            "children": [
+                {
+                    "name": "Product Manager A",
+                    "value": 75
+                },
+                {
+                    "name": "Product Manager B",
+                    "value": 65
+                },
+                {
+                    "name": "Designer Lead",
+                    "value": 80
+                }
+            ]
+        },
+        {
+            "name": "VP Engineering",
+            "children": [
+                {
+                    "name": "Frontend Lead",
+                    "children": [
+                        {
+                            "name": "FE Dev 1",
+                            "value": 85
+                        },
+                        {
+                            "name": "FE Dev 2",
+                            "value": 78
+                        }
+                    ]
+                },
+                {
+                    "name": "Backend Lead",
+                    "children": [
+                        {
+                            "name": "BE Dev 1",
+                            "value": 90
+                        },
+                        {
+                            "name": "BE Dev 2",
+                            "value": 88
+                        }
+                    ]
+                },
+                {
+                    "name": "QA Lead",
+                    "value": 70
+                }
+            ]
+        },
+        {
+            "name": "VP Sales",
+            "children": [
+                {
+                    "name": "Regional Director US",
+                    "value": 90
+                },
+                {
+                    "name": "Regional Director EU",
+                    "value": 85
+                },
+                {
+                    "name": "Regional Director APAC",
+                    "value": 82
+                }
+            ]
+        },
+        {
+            "name": "VP HR",
+            "children": [
+                {
+                    "name": "Recruiting Manager",
+                    "value": 60
+                },
+                {
+                    "name": "L&D Manager",
+                    "value": 55
+                }
+            ]
+        }
+    ]
+}

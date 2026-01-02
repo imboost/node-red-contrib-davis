@@ -1,0 +1,394 @@
+/* ===========================================
+   Microbase - Sidebar Styles
+   Configuration sidebar with tabs
+   =========================================== */
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100%;
+    background: var(--color-bg-secondary);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.sidebar.collapsed {
+    width: 0;
+    border-right: none;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-header h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.btn-close-sidebar {
+    width: 32px;
+    height: 32px;
+}
+
+/* Sidebar Tabs */
+.sidebar-tabs {
+    display: flex;
+    padding: var(--spacing-sm);
+    gap: var(--spacing-xs);
+    background: var(--color-bg-tertiary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.tab-btn.active {
+    color: var(--color-text-primary);
+    background: var(--color-bg-secondary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn var(--transition-fast);
+}
+
+/* Config Sections */
+.config-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.config-section:last-child {
+    margin-bottom: 0;
+}
+
+.config-label {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.config-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+.config-row .config-label {
+    margin-bottom: 0;
+}
+
+/* Series List */
+.series-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.series-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.series-item:hover {
+    background: var(--color-border-light);
+}
+
+.series-color {
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.series-color:hover {
+    transform: scale(1.1);
+}
+
+.series-name {
+    flex: 1;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.series-toggle {
+    opacity: 0.8;
+}
+
+.series-toggle:hover {
+    opacity: 1;
+}
+
+.series-remove {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-tertiary);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    opacity: 0;
+    transition: all var(--transition-fast);
+}
+
+.series-item:hover .series-remove {
+    opacity: 1;
+}
+
+.series-remove:hover {
+    color: var(--color-danger);
+    background: rgba(239, 140, 140, 0.1);
+}
+
+.series-remove svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Chart Type Selector */
+.chart-type-selector {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.chart-type-selector:hover {
+    background: var(--color-border-light);
+    border-color: var(--color-text-tertiary);
+}
+
+.chart-type-current {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.chart-type-selector .chart-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-type-selector .chart-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.chart-type-selector .chart-name {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.chart-type-selector .dropdown-arrow {
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-tertiary);
+}
+
+/* Add Series Button */
+.btn-add-series {
+    width: 100%;
+    padding: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    border: 1px dashed var(--color-primary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-add-series:hover {
+    background: rgba(80, 158, 227, 0.15);
+}
+
+.btn-add-series svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Goal Line Config */
+.goal-line-config {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.goal-line-config .config-input {
+    flex: 1;
+}
+
+/* Color Palette */
+.color-palette {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.palette-btn {
+    display: flex;
+    gap: 2px;
+    padding: var(--spacing-xs);
+    background: var(--color-bg-tertiary);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.palette-btn:hover {
+    background: var(--color-border-light);
+}
+
+.palette-btn.active {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+}
+
+.palette-btn span {
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-sm);
+}
+
+/* Range Inputs */
+.range-inputs {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.range-inputs .config-input {
+    flex: 1;
+}
+
+.range-separator {
+    color: var(--color-text-tertiary);
+    font-size: var(--font-size-sm);
+}
+
+/* Color Picker Popup */
+.color-picker-popup {
+    position: absolute;
+    top: calc(100% + var(--spacing-xs));
+    left: 0;
+    padding: var(--spacing-sm);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    display: none;
+}
+
+.color-picker-popup.active {
+    display: block;
+    animation: scaleIn var(--transition-fast);
+}
+
+.color-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-xs);
+}
+
+.color-picker-option {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.color-picker-option:hover {
+    transform: scale(1.1);
+}
+
+.color-picker-option.selected {
+    border-color: var(--color-text-primary);
+}
+
+/* Custom scrollbar for sidebar */
+.tab-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tab-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tab-content::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+}
+
+.tab-content::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+}

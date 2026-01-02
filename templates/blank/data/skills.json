@@ -1,0 +1,26 @@
+[
+    {
+        "Department": "R&D",
+        "Funding": 85,
+        "Spending": 70,
+        "Output": 90,
+        "Efficiency": 80,
+        "Innovation": 95
+    },
+    {
+        "Department": "Marketing",
+        "Funding": 70,
+        "Spending": 65,
+        "Output": 80,
+        "Efficiency": 85,
+        "Innovation": 75
+    },
+    {
+        "Department": "Sales",
+        "Funding": 60,
+        "Spending": 55,
+        "Output": 85,
+        "Efficiency": 90,
+        "Innovation": 60
+    }
+]

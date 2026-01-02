@@ -1,0 +1,67 @@
+[
+    {
+        "id": "indonesia",
+        "name": "Indonesia",
+        "path": "data/indonesia.geojson"
+    },
+    {
+        "id": "us",
+        "name": "United States",
+        "path": "data/us.geojson"
+    },
+    {
+        "id": "southeast-asia",
+        "name": "Southeast Asia",
+        "path": "data/southeast-asia.geojson"
+    },
+    {
+        "id": "south-africa",
+        "name": "South Africa",
+        "path": "data/south-africa.geojson"
+    },
+    {
+        "id": "europe-1914",
+        "name": "Europe 1914",
+        "path": "data/europe-1914.geojson"
+    },
+    {
+        "id": "europe-1938",
+        "name": "Europe 1938",
+        "path": "data/europe-1938.geojson"
+    },
+    {
+        "id": "europe",
+        "name": "Europe",
+        "path": "data/europe.geojson"
+    },
+    {
+        "id": "australia",
+        "name": "Australia",
+        "path": "data/australia.geojson"
+    },
+    {
+        "id": "north-america",
+        "name": "North America",
+        "path": "data/north-america.geojson"
+    },
+    {
+        "id": "south-america",
+        "name": "South America",
+        "path": "data/south-america.geojson"
+    },
+    {
+        "id": "middle-east",
+        "name": "Middle East",
+        "path": "data/middle-east.geojson"
+    },
+    {
+        "id": "asia",
+        "name": "Asia",
+        "path": "data/asia.geojson"
+    },
+    {
+        "id": "world",
+        "name": "World",
+        "path": "https://code.highcharts.com/mapdata/custom/world.geo.json"
+    }
+]

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davis - Query Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/query-builder.css">
+</head>
+
+<body style="display: none;">
+    <!-- Top Toolbar -->
+    <header class="toolbar">
+        <div class="toolbar-left">
+            <a href="home.html" class="logo" style="text-decoration: none;">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7 14L11 10L15 14L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="logo-text">Davis</span>
+            </a>
+        </div>
+        <div class="toolbar-center">
+            <span class="query-title">New Query</span>
+        </div>
+        <div class="toolbar-right" style="display: flex; align-items: center; gap: 8px;">
+            <div id="chartToolbarActions" style="display: none; align-items: center; gap: 8px;">
+                <button class="btn btn-secondary" id="saveDesignBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-right: 4px;">
+                        <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
+                        <polyline points="17,21 17,13 7,13 7,21" />
+                        <polyline points="7,3 7,8 15,8" />
+                    </svg>
+                    Save
+                </button>
+                <button class="btn btn-secondary" id="exportPngBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-right: 4px;">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                    Export
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Query Builder Sidebar -->
+        <aside class="query-sidebar">
+            <div id="query-config">
+                <div class="sidebar-header">
+                    <h2>Query Builder</h2>
+                </div>
+
+                <!-- Data Source Section -->
+                <div class="query-section">
+                    <label class="section-label">Data Source</label>
+                    <select class="config-select" id="dataSourceSelect">
+                        <option value="monthlySales">Monthly Sales</option>
+                        <option value="products">Products</option>
+                        <option value="customers">Customers</option>
+                        <option value="orders">Orders</option>
+                    </select>
+                    <div class="field-count" id="fieldCount">6 fields, 12 records</div>
+                </div>
+
+                <!-- Columns Section -->
+                <div class="query-section">
+                    <div class="section-header">
+                        <label class="section-label">Columns</label>
+                        <button class="btn-link" id="selectAllColumns">Select All</button>
+                    </div>
+                    <div class="column-list" id="columnList">
+                        <!-- Column checkboxes will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Filters Section -->
+                <div class="query-section">
+                    <div class="section-header">
+                        <label class="section-label">Filters</label>
+                        <button class="btn-add" id="addFilterBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filter-list" id="filterList">
+                        <!-- Filter rows will be added dynamically -->
+                        <div class="empty-state" id="noFilters">No filters applied</div>
+                    </div>
+                </div>
+
+                <!-- Sort Section -->
+                <div class="query-section">
+                    <div class="section-header">
+                        <label class="section-label">Sort</label>
+                        <button class="btn-add" id="addSortBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="sort-list" id="sortList">
+                        <div class="empty-state" id="noSort">No sorting applied</div>
+                    </div>
+                </div>
+
+                <!-- Limit Section -->
+                <div class="query-section">
+                    <label class="section-label">Limit Results</label>
+                    <input type="number" class="config-input" id="limitInput" placeholder="No limit" min="1">
+                </div>
+            </div>
+
+            <!-- Visual Config (Hidden by default) -->
+            <div id="viz-config" style="display: none;">
+                <div class="sidebar-header">
+                    <h2>Visualization</h2>
+                </div>
+
+                <!-- Sidebar Tabs -->
+                <div class="sidebar-tabs">
+                    <button class="tab-btn active" data-tab="data">Data</button>
+                    <button class="tab-btn" data-tab="display">Display</button>
+                    <button class="tab-btn" data-tab="axes">Axes</button>
+                </div>
+
+                <!-- Data Tab -->
+                <div class="tab-content active" id="tab-data">
+                    <div class="config-section">
+                        <label class="config-label">Chart Type</label>
+                        <button class="chart-type-selector" id="chartTypeSelector">
+                            <span class="chart-type-current">
+                                <span class="chart-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="10" width="4" height="10" />
+                                        <rect x="10" y="5" width="4" height="15" />
+                                        <rect x="17" y="8" width="4" height="12" />
+                                    </svg>
+                                </span>
+                                <span class="chart-name">Bar Chart</span>
+                            </span>
+                            <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="config-section" data-for="axis,pie,donut,halfDonut,nightingale,radar,candlestick">
+                        <label class="config-label">X-Axis</label>
+                        <select class="config-select" id="xAxisField">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="config-section" data-for="matrix">
+                        <label class="config-label">X-Axis</label>
+                        <select class="config-select" id="matrixXAxis"></select>
+
+                        <label class="config-label" style="margin-top: 15px;">Y-Axis</label>
+                        <select class="config-select" id="matrixYAxis"></select>
+
+                        <label class="config-label" style="margin-top: 15px;">Value</label>
+                        <select class="config-select" id="matrixValue"></select>
+                    </div>
+
+                    <div class="config-section" data-for="candlestick">
+                        <label class="config-label">Open</label>
+                        <select class="config-select" id="candleOpen"></select>
+
+                        <label class="config-label" style="margin-top: 10px;">Close</label>
+                        <select class="config-select" id="candleClose"></select>
+
+                        <label class="config-label" style="margin-top: 10px;">Lowest</label>
+                        <select class="config-select" id="candleLow"></select>
+
+                        <label class="config-label" style="margin-top: 10px;">Highest</label>
+                        <select class="config-select" id="candleHigh"></select>
+
+                        <label class="config-label" style="margin-top: 15px;">Series Name</label>
+                        <input type="text" class="config-input" id="candleName" placeholder="Price" value="Price">
+                    </div>
+
+                    <div class="config-section" data-for="gauge">
+                        <label class="config-label">Min Value</label>
+                        <input type="number" class="config-input" id="gaugeMin" value="0">
+
+                        <label class="config-label" style="margin-top: 10px;">Max Value</label>
+                        <input type="number" class="config-input" id="gaugeMax" value="180">
+
+                        <label class="config-label" style="margin-top: 10px;">Start Angle</label>
+                        <input type="number" class="config-input" id="gaugeStartAngle" value="180" placeholder="180">
+
+                        <label class="config-label" style="margin-top: 10px;">End Angle</label>
+                        <input type="number" class="config-input" id="gaugeEndAngle" value="0" placeholder="0">
+
+                        <label class="config-label" style="margin-top: 10px;">Split Number</label>
+                        <input type="number" class="config-input" id="gaugeSplitNumber" value="10" placeholder="10">
+                    </div>
+
+                    <div class="config-section" data-for="geo">
+                        <label class="config-label">Map Region</label>
+                        <select class="config-select" id="mapRegionSelect">
+                            <option value="indonesia">Indonesia</option>
+                            <!-- Options populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="config-section" data-for="geo">
+                        <label class="config-label">Map Key Field</label>
+                        <select class="config-select" id="mapKeyField">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="config-section" data-for="geo">
+                        <label class="config-label mt-2">Value Field</label>
+                        <select class="config-select" id="geoValueField">
+                            <!-- Populated dynamically -->
+                        </select>
+                        <button id="updateMapBtn" type="button" class="btn" style="width: 100%; margin-top: 12px; background: #007bff; color: #fff; border: none;">
+                            <i class="fas fa-sync-alt"></i> Update Map Color
+                        </button>
+                    </div>
+
+                    <div class="config-section" data-for="axis,geomapPie,pie,donut,halfDonut,nightingale,radar">
+                        <label class="config-label">Values / Y-Axis</label>
+                        <div class="series-list" id="seriesList">
+                            <!-- Series items will be added dynamically -->
+                        </div>
+                        <button class="btn btn-add-series" id="addSeriesBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            Add Series
+                        </button>
+                    </div>
+
+                    <div class="config-section" data-for="bar,area,row">
+                        <label class="config-label">Stacking</label>
+                        <select class="config-select" id="stackingMode">
+                            <option value="none">None</option>
+                            <option value="stacked">Stacked</option>
+                            <option value="percent">100% Stacked</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Display Tab -->
+                <div class="tab-content" id="tab-display">
+                    <div class="config-section">
+                        <label class="config-label">Chart Title</label>
+                        <input type="text" class="config-input" id="chartTitle" placeholder="Enter chart title...">
+                    </div>
+
+                    <div class="config-section" data-for="axis,pie,donut,funnel,halfDonut,nightingale,radar,candlestick">
+                        <label class="config-label">Legend</label>
+                        <select class="config-select" id="legendPosition">
+                            <option value="top">Top</option>
+                            <option value="bottom">Bottom</option>
+                            <option value="left">Left</option>
+                            <option value="right">Right</option>
+                            <option value="none">Hidden</option>
+                        </select>
+                    </div>
+
+                    <div class="config-section" data-for="pie,donut,halfDonut,nightingale">
+                        <div class="config-row">
+                            <label class="config-label">Name Position</label>
+                            <select class="config-select" id="labelNamePosition">
+                                <option value="outside">Outside</option>
+                                <option value="inside">Inside</option>
+                            </select>
+                        </div>
+                        <div class="config-row" style="margin-top: 8px;">
+                            <label class="config-label">Value Position</label>
+                            <select class="config-select" id="labelValuePosition">
+                                <option value="outside">Outside</option>
+                                <option value="inside">Inside</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Field & Label (Shared) -->
+                    <div class="config-section" data-for="number,gauge">
+                        <label class="config-label">Field</label>
+                        <select class="config-select" id="numberField"></select>
+
+
+
+                        <label class="config-label" style="margin-top: 15px;">Label</label>
+                        <input type="text" class="config-input" id="numberLabel" placeholder="Custom Label">
+                    </div>
+
+                    <!-- Aggregation & Format (Number Only) -->
+                    <div class="config-section" data-for="number">
+                        <label class="config-label">Aggregation</label>
+                        <select class="config-select" id="numberAggregation">
+                            <option value="sum">Sum</option>
+                            <option value="avg">Average</option>
+                            <option value="min">Min</option>
+                            <option value="max">Max</option>
+                            <option value="count">Count</option>
+                        </select>
+
+                        <label class="config-label" style="margin-top: 15px;">Format</label>
+                        <select class="config-select" id="numberFormatSelect">
+                            <option value="compact">Compact (1.2K)</option>
+                            <option value="standard">Standard (1,234.56)</option>
+                            <option value="european">European (1.234,56)</option>
+                            <option value="plain">Plain (1234.56)</option>
+                        </select>
+                    </div>
+
+                    <div class="config-section" data-for="axis,pie,donut,geomap,halfDonut,nightingale,radar">
+                        <div class="config-row">
+                            <label class="config-label">Show Labels</label>
+                            <label class="toggle">
+                                <input type="checkbox" id="showLabels">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-section" data-for="axis,pie,donut,radar">
+                        <div class="config-row">
+                            <label class="config-label">Show Values</label>
+                            <label class="toggle">
+                                <input type="checkbox" id="showValues">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-section" data-for="bar,line,area,row,combo">
+                        <div class="config-row">
+                            <label class="config-label">Show Min/Max Points</label>
+                            <label class="toggle">
+                                <input type="checkbox" id="showMinMax">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-section" id="configSectionZoom" data-for="axis,candlestick">
+                        <div class="config-row">
+                            <label class="config-label">Enable Zoom</label>
+                            <label class="toggle">
+                                <input type="checkbox" id="showDataZoom">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-section" data-for="calendar">
+                        <label class="config-label">Legend Position</label>
+                        <select class="config-select" id="calendarLegendPosition">
+                            <option value="bottom">Bottom</option>
+                            <option value="top">Top</option>
+                            <option value="none">Hidden</option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="config-section">
+                        <label class="config-label">Color Palette</label>
+                        <div class="color-palette" id="colorPalette">
+                            <button class="palette-btn active" data-palette="default" title="Default">
+                                <span style="background: #509EE3"></span>
+                                <span style="background: #88BF4D"></span>
+                                <span style="background: #A989C5"></span>
+                            </button>
+                            <button class="palette-btn" data-palette="warm" title="Warm">
+                                <span style="background: #EF6C00"></span>
+                                <span style="background: #FDD835"></span>
+                                <span style="background: #E53935"></span>
+                            </button>
+                            <button class="palette-btn" data-palette="cool" title="Cool">
+                                <span style="background: #00ACC1"></span>
+                                <span style="background: #5E35B1"></span>
+                                <span style="background: #1E88E5"></span>
+                            </button>
+                            <button class="palette-btn" data-palette="nature" title="Nature">
+                                <span style="background: #43A047"></span>
+                                <span style="background: #8BC34A"></span>
+                                <span style="background: #004D40"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Axes Tab -->
+                <div class="tab-content" id="tab-axes">
+                    <div class="config-section" data-for="axis">
+                        <label class="config-label">X-Axis Title</label>
+                        <input type="text" class="config-input" id="xAxisTitle" placeholder="Enter title...">
+                    </div>
+
+                    <div class="config-section" data-for="axis">
+                        <label class="config-label">Y-Axis Title</label>
+                        <input type="text" class="config-input" id="yAxisTitle" placeholder="Enter title...">
+                    </div>
+
+                    <div class="config-section" data-for="axis">
+                        <label class="config-label">Y-Axis Range</label>
+                        <div class="range-inputs">
+                            <input type="number" class="config-input" id="yAxisMin" placeholder="Min (auto)">
+                            <span class="range-separator">to</span>
+                            <input type="number" class="config-input" id="yAxisMax" placeholder="Max (auto)">
+                        </div>
+                    </div>
+
+                    <div class="config-section" data-for="bar,line,area,combo">
+                        <label class="config-label">Mark Line (Goal)</label>
+                        <input type="number" class="config-input" id="goalValue" placeholder="Value (e.g. 1000)" style="margin-bottom: 8px;">
+                        <input type="text" class="config-input" id="goalLabel" placeholder="Label (Optional)">
+                    </div>
+
+                    <div class="config-section" data-for="axis,candlestick">
+                        <div class="config-row">
+                            <label class="config-label">Grid Lines</label>
+                            <label class="toggle">
+                                <input type="checkbox" id="showGridLines" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <label class="config-label">Number Format</label>
+                        <select class="config-select" id="numberFormat">
+                            <option value="default">Default</option>
+                            <option value="currency">Currency ($)</option>
+                            <option value="percent">Percentage (%)</option>
+                            <option value="compact">Compact (1K, 1M)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Results Area -->
+        <main class="results-area">
+            <!-- Tabs -->
+            <div class="results-tabs">
+                <button class="results-tab active" data-view="table">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <line x1="3" y1="9" x2="21" y2="9" />
+                        <line x1="3" y1="15" x2="21" y2="15" />
+                        <line x1="9" y1="3" x2="9" y2="21" />
+                    </svg>
+                    Table
+                </button>
+                <button class="results-tab" data-view="json">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                    JSON
+                </button>
+                <button class="results-tab" data-view="chart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="10" width="4" height="10" />
+                        <rect x="10" y="5" width="4" height="15" />
+                        <rect x="17" y="8" width="4" height="12" />
+                    </svg>
+                    Chart
+                </button>
+                <div class="results-info">
+                    <span id="resultCount">0 results</span>
+                </div>
+            </div>
+
+            <!-- Table View -->
+            <div class="results-view active" id="tableView">
+                <div class="table-container">
+                    <table class="results-table" id="resultsTable">
+                        <thead id="tableHead"></thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Chart View -->
+            <div class="results-view" id="chartView">
+                <div class="chart-container" id="queryChartContainer"></div>
+            </div>
+
+            <!-- JSON View -->
+            <div class="results-view" id="jsonView">
+                <div class="json-container" style="padding: 16px; height: 100%; overflow: auto; background: #f8fafc; border-radius: 8px; font-family: monospace; color: #334155;">
+                    <pre><code id="jsonCode" style="white-space: pre-wrap; word-wrap: break-word;"></code></pre>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Series Modal -->
+    <div class="modal-overlay" id="addSeriesModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add Series</h3>
+                <button class="modal-close" id="closeSeriesModal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Data Field</label>
+                    <select class="form-select" id="newSeriesField">
+                        <!-- Options populated dynamically -->
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelAddSeries">Cancel</button>
+                <button class="btn btn-primary" id="confirmAddSeries">Add Series</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart Type Modal -->
+    <div class="modal-overlay" id="chartTypeModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h3>Select Visualization</h3>
+                <button class="modal-close" id="closeModal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="chart-type-grid" id="chartTypeGrid">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save Design Modal -->
+    <div class="modal-overlay" id="saveDesignModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Save Design</h3>
+                <button class="modal-close" id="closeSaveModal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Design Name</label>
+                    <input type="text" class="form-input" id="designNameInput" placeholder="e.g., Revenue Analysis 2024">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelSaveDesign">Cancel</button>
+                <button class="btn btn-primary" id="confirmSaveDesign">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./echarts/echarts.min.js"></script>
+    <script src="./js/nowdb.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/chartConfig.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/queryBuilder.js"></script>
+</body>
+
+</html>

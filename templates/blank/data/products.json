@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop Pro",
+        "category": "Electronics",
+        "price": 1299,
+        "stock": 45,
+        "rating": 4.5
+    },
+    {
+        "id": 2,
+        "name": "Wireless Mouse",
+        "category": "Electronics",
+        "price": 49,
+        "stock": 230,
+        "rating": 4.2
+    },
+    {
+        "id": 3,
+        "name": "USB-C Hub",
+        "category": "Electronics",
+        "price": 79,
+        "stock": 120,
+        "rating": 4.0
+    },
+    {
+        "id": 4,
+        "name": "Office Chair",
+        "category": "Furniture",
+        "price": 349,
+        "stock": 35,
+        "rating": 4.7
+    },
+    {
+        "id": 5,
+        "name": "Standing Desk",
+        "category": "Furniture",
+        "price": 599,
+        "stock": 22,
+        "rating": 4.4
+    },
+    {
+        "id": 6,
+        "name": "Monitor 27\"",
+        "category": "Electronics",
+        "price": 449,
+        "stock": 68,
+        "rating": 4.6
+    },
+    {
+        "id": 7,
+        "name": "Keyboard",
+        "category": "Electronics",
+        "price": 129,
+        "stock": 185,
+        "rating": 4.3
+    },
+    {
+        "id": 8,
+        "name": "Desk Lamp",
+        "category": "Furniture",
+        "price": 89,
+        "stock": 95,
+        "rating": 4.1
+    },
+    {
+        "id": 9,
+        "name": "Webcam HD",
+        "category": "Electronics",
+        "price": 99,
+        "stock": 145,
+        "rating": 4.0
+    },
+    {
+        "id": 10,
+        "name": "Notebook",
+        "category": "Office",
+        "price": 12,
+        "stock": 500,
+        "rating": 4.8
+    }
+]

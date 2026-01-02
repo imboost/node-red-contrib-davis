@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "John Smith",
+        "email": "john@example.com",
+        "city": "New York",
+        "totalOrders": 15,
+        "totalSpent": 2450
+    },
+    {
+        "id": 2,
+        "name": "Sarah Johnson",
+        "email": "sarah@example.com",
+        "city": "Los Angeles",
+        "totalOrders": 8,
+        "totalSpent": 1280
+    },
+    {
+        "id": 3,
+        "name": "Mike Brown",
+        "email": "mike@example.com",
+        "city": "Chicago",
+        "totalOrders": 22,
+        "totalSpent": 3890
+    },
+    {
+        "id": 4,
+        "name": "Emily Davis",
+        "email": "emily@example.com",
+        "city": "Houston",
+        "totalOrders": 5,
+        "totalSpent": 720
+    },
+    {
+        "id": 5,
+        "name": "David Wilson",
+        "email": "david@example.com",
+        "city": "Phoenix",
+        "totalOrders": 12,
+        "totalSpent": 1850
+    },
+    {
+        "id": 6,
+        "name": "Lisa Anderson",
+        "email": "lisa@example.com",
+        "city": "New York",
+        "totalOrders": 18,
+        "totalSpent": 2980
+    },
+    {
+        "id": 7,
+        "name": "James Taylor",
+        "email": "james@example.com",
+        "city": "San Diego",
+        "totalOrders": 9,
+        "totalSpent": 1420
+    },
+    {
+        "id": 8,
+        "name": "Jennifer Martin",
+        "email": "jennifer@example.com",
+        "city": "Dallas",
+        "totalOrders": 14,
+        "totalSpent": 2150
+    }
+]

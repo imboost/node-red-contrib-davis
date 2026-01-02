@@ -1,0 +1,62 @@
+[
+    {
+        "country": "Indonesia",
+        "gdp": 1300,
+        "population": 273,
+        "growth": 5.1
+    },
+    {
+        "country": "Thailand",
+        "gdp": 500,
+        "population": 71,
+        "growth": 2.6
+    },
+    {
+        "country": "Singapore",
+        "gdp": 400,
+        "population": 5.6,
+        "growth": 3.8
+    },
+    {
+        "country": "Malaysia",
+        "gdp": 370,
+        "population": 33,
+        "growth": 4.5
+    },
+    {
+        "country": "Vietnam",
+        "gdp": 360,
+        "population": 98,
+        "growth": 6.2
+    },
+    {
+        "country": "Philippines",
+        "gdp": 390,
+        "population": 113,
+        "growth": 5.8
+    },
+    {
+        "country": "Myanmar",
+        "gdp": 60,
+        "population": 54,
+        "growth": 1.5
+    },
+    {
+        "country": "Cambodia",
+        "gdp": 27,
+        "population": 16,
+        "growth": 5.2
+    },
+    {
+        "country": "Laos",
+        "gdp": 18,
+        "population": 7.5,
+        "growth": 3.1
+    },
+    {
+        "country": "Brunei",
+        "gdp": 12,
+        "population": 0.4,
+        "growth": 1.2
+    }
+]

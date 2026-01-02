@@ -1,0 +1,130 @@
+<!--
+    Node-RED Davis - Editor UI
+    Provides configuration panel and node appearance in the editor
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('davis', {
+        category: 'davis',
+        color: '#d7d1ff',
+        defaults: {
+            name: { value: '' },
+            url: {
+                value: 'dash',
+                required: true,
+                validate: function (v) {
+                    if (!v || v.length === 0) return false;
+                    if (v.length > 20) return false;
+                    if (/[\/\\\s_\.]/.test(v)) return false;
+                    return true;
+                }
+            },
+            topic: { value: '' },
+            fwdInMessages: { value: true },
+            allowScripts: { value: true },
+            allowStyles: { value: true },
+            copyIndex: { value: true }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-columns',
+        label: function () {
+            return this.name || this.url || 'davis';
+        },
+        paletteLabel: 'davis',
+        labelStyle: function () {
+            return this.name ? 'node_label_italic' : '';
+        },
+        oneditprepare: function () {
+            const node = this;
+            const baseUrl = window.location.origin;
+            const updateUrl = function () {
+                const url = $('#node-input-url').val();
+                $('#davis-url-display').html(
+                    `<a href="${baseUrl}/${url}" target="_blank">${baseUrl}/${url}</a>`
+                );
+            };
+            $('#node-input-url').on('input', updateUrl);
+            updateUrl();
+        },
+        oneditsave: function () {
+            let url = $('#node-input-url').val();
+            url = url.toLowerCase().replace(/[^a-z0-9-]/g, '');
+            $('#node-input-url').val(url);
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="davis">
+    <div class="form-row">
+        <label for="node-input-url"><i class="fa fa-globe"></i> URL</label>
+        <input type="text" id="node-input-url" placeholder="davis (max 20 chars)">
+    </div>
+    
+    <div class="form-row">
+        <label><i class="fa fa-link"></i> Web URL</label>
+        <span id="davis-url-display" style="display: inline-block; padding: 5px 0;"></span>
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Optional display name">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Default topic for messages">
+    </div>
+    
+    <hr>
+    
+    <div class="form-row">
+        <label style="width: auto;">
+            <input type="checkbox" id="node-input-fwdInMessages" style="width: auto; margin-right: 5px;">
+            Forward input messages to output
+        </label>
+    </div>
+    
+    <div class="form-row">
+        <label style="width: auto;">
+            <input type="checkbox" id="node-input-copyIndex" style="width: auto; margin-right: 5px;">
+            Copy Bootstrap template to new instance
+        </label>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="davis">
+    <p>Easily create Bootstrap-based web UIs for Node-RED.</p>
+    
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">any</span></dt>
+        <dd>The message payload to send to the connected web clients.</dd>
+        <dt class="optional">topic <span class="property-type">string</span></dt>
+        <dd>An optional topic for the message.</dd>
+    </dl>
+    
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">any</span></dt>
+        <dd>Messages received from connected web clients.</dd>
+        <dt>_socketId <span class="property-type">string</span></dt>
+        <dd>The Socket.IO client ID that sent the message.</dd>
+    </dl>
+    
+    <h3>Details</h3>
+    <p>Davis provides a simple way to create Bootstrap-based web user interfaces 
+    that communicate in real-time with your Node-RED flows.</p>
+    
+    <h4>Features:</h4>
+    <ul>
+        <li>Bootstrap 5 framework included</li>
+        <li>Bootstrap Icons support</li>
+        <li>Real-time bidirectional WebSocket communication</li>
+        <li>Automatic static file serving</li>
+    </ul>
+    
+    <h4>File Location:</h4>
+    <p>Your web files are stored in:<br>
+    <code>~/.node-red/davis/{url}/src/</code></p>
+</script>

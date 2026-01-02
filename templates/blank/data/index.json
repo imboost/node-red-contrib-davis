@@ -1,0 +1,102 @@
+[
+    {
+        "id": "monthlySales",
+        "name": "Monthly Sales",
+        "path": "data/monthlySales.json"
+    },
+    {
+        "id": "products",
+        "name": "Products",
+        "path": "data/products.json"
+    },
+    {
+        "id": "customers",
+        "name": "Customers",
+        "path": "data/customers.json"
+    },
+    {
+        "id": "orders",
+        "name": "Orders",
+        "path": "data/orders.json"
+    },
+    {
+        "id": "indonesiaProvinces",
+        "name": "Indonesia Provinces",
+        "path": "data/indonesiaProvinces.json"
+    },
+    {
+        "id": "usSales",
+        "name": "US Sales",
+        "path": "data/us_sales.json"
+    },
+    {
+        "id": "europeStats",
+        "name": "Europe Stats",
+        "path": "data/europe_stats.json"
+    },
+    {
+        "id": "australiaTourism",
+        "name": "Australia Tourism",
+        "path": "data/australia_tourism.json"
+    },
+    {
+        "id": "aseanEconomy",
+        "name": "ASEAN Economy",
+        "path": "data/asean_economy.json"
+    },
+    {
+        "id": "performance",
+        "name": "Performance (KPI)",
+        "path": "data/performance.json"
+    },
+    {
+        "id": "skills",
+        "name": "Department Skills (Radar)",
+        "path": "data/skills.json"
+    },
+    {
+        "id": "stock_prices",
+        "name": "Stock Prices (Candlestick)",
+        "path": "data/stock_prices.json"
+    },
+    {
+        "id": "network_graph",
+        "name": "Project Dependencies (Graph)",
+        "path": "data/network_graph.json"
+    },
+    {
+        "id": "calendar_activity",
+        "name": "Daily Activity (Calendar)",
+        "path": "data/calendar_activity.json"
+    },
+    {
+        "id": "energy_flow",
+        "name": "Energy Flow (Sankey)",
+        "path": "data/energy_flow.json"
+    },
+    {
+        "id": "migration_flow",
+        "name": "Migration (Chord)",
+        "path": "data/migration_flow.json"
+    },
+    {
+        "id": "company_structure",
+        "name": "Company Structure (Tree)",
+        "path": "data/company_structure.json"
+    },
+    {
+        "id": "gauge_data",
+        "name": "KPI Metrics (Gauge)",
+        "path": "data/gauge_data.json"
+    },
+    {
+        "id": "speed_gauge_data",
+        "name": "Vehicle Speed (Speed Gauge)",
+        "path": "data/speed_gauge_data.json"
+    },
+    {
+        "id": "stage_speed_data",
+        "name": "Race Stages (Stage Speed)",
+        "path": "data/stage_speed_data.json"
+    }
+]

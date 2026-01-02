@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davis - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+
+<body class="home-page-body">
+    <!-- Top Toolbar -->
+    <header class="toolbar">
+        <div class="toolbar-left">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7 14L11 10L15 14L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="logo-text">Davis</span>
+            </div>
+        </div>
+        <div class="toolbar-center">
+            <div class="search-bar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="dashboardSearch" placeholder="Search your dashboards and reports...">
+            </div>
+        </div>
+        <div class="toolbar-right">
+            <a href="query-builder.html" class="btn btn-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+                New Query
+            </a>
+            <a href="ui-builder.html" class="btn btn-primary" id="newDashboardLink">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                New Dashboard
+            </a>
+            <button class="btn btn-secondary" id="signOutBtn" style="margin-left: 8px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: -2px;">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="home-container">
+        <div class="catalog-page">
+            <header class="catalog-header">
+                <div class="header-content">
+                    <h1>Analytics Workspace</h1>
+                    <p>Welcome to your personal analytics workspace. Select a report to continue.</p>
+                </div>
+                <div class="header-stats">
+                    <div class="mini-stat">
+                        <span class="stat-value" id="totalCount">0</span>
+                        <span class="stat-label">Items</span>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="catalog-navbar">
+                <div class="nav-left">
+                    <button class="nav-btn active" data-view="dashboards">Dashboards</button>
+                    <button class="nav-btn" data-view="charts">Charts</button>
+                </div>
+                <div class="nav-right">
+                    <!-- View options removed for simplicity -->
+                </div>
+            </nav>
+
+            <section class="dashboard-list-section">
+                <div class="dashboard-grid" id="dashboardGrid">
+                    <!-- Dashboard cards will be injected here -->
+                </div>
+                <div class="empty-status" id="emptyStatus" style="display: none;">
+                    <div class="empty-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="12" y1="18" x2="12" y2="12"></line>
+                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3>No dashboards found</h3>
+                    <p>Unlock insights by creating your first dashboard or adjusting your search criteria.</p>
+                    <a href="ui-builder.html" class="btn btn-primary" id="createFirstDashBtn">Create Your First Dashboard</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Sign Out Modal -->
+    <div class="modal-overlay" id="signOutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sign Out</h3>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to sign out? You will need to log in again to access your dashboards.
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelSignOut">Cancel</button>
+                <button class="btn btn-danger" id="confirmSignOut">Sign Out</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteConfirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete Dashboard</h3>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <strong id="deleteTargetName">this dashboard</strong>? This action cannot be undone.
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelDelete">Cancel</button>
+                <button class="btn btn-danger" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/utils.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/home.js"></script>
+</body>
+
+</html>

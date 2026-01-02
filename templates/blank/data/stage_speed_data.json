@@ -1,0 +1,32 @@
+[
+    {
+        "stage": "Stage 1 - City",
+        "speed": 45,
+        "target": 50,
+        "zone": "safe"
+    },
+    {
+        "stage": "Stage 2 - Highway",
+        "speed": 110,
+        "target": 120,
+        "zone": "normal"
+    },
+    {
+        "stage": "Stage 3 - Sprint",
+        "speed": 180,
+        "target": 160,
+        "zone": "danger"
+    },
+    {
+        "stage": "Stage 4 - Recovery",
+        "speed": 75,
+        "target": 80,
+        "zone": "safe"
+    },
+    {
+        "stage": "Stage 5 - Final",
+        "speed": 145,
+        "target": 140,
+        "zone": "warning"
+    }
+]

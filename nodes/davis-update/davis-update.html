@@ -1,0 +1,92 @@
+<!--
+    Node-RED Davis - Update Node Editor
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('davis-update', {
+        category: 'davis',
+        color: '#d7d1ff',
+        defaults: {
+            name: { value: '' },
+            mode: { value: 'update' },
+            selector: { value: '' },
+            attribute: { value: 'innerHTML' }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-pencil',
+        label: function () {
+            return this.name || `${this.mode}: ${this.selector || 'element'}`;
+        },
+        paletteLabel: 'davis update',
+        labelStyle: function () {
+            return this.name ? 'node_label_italic' : '';
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="davis-update">
+    <div class="form-row">
+        <label for="node-input-mode"><i class="fa fa-cog"></i> Mode</label>
+        <select id="node-input-mode">
+            <option value="update">Update content</option>
+            <option value="replace">Replace element</option>
+            <option value="remove">Remove element</option>
+            <option value="addClass">Add CSS class</option>
+            <option value="removeClass">Remove CSS class</option>
+            <option value="toggleClass">Toggle CSS class</option>
+        </select>
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-selector"><i class="fa fa-crosshairs"></i> Selector</label>
+        <input type="text" id="node-input-selector" placeholder="CSS selector (e.g. #my-id, .my-class)">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-attribute"><i class="fa fa-tag"></i> Attribute</label>
+        <select id="node-input-attribute">
+            <option value="innerHTML">innerHTML (content)</option>
+            <option value="textContent">textContent (text only)</option>
+            <option value="value">value (for inputs)</option>
+            <option value="src">src (for images)</option>
+            <option value="href">href (for links)</option>
+            <option value="class">class</option>
+            <option value="style">style</option>
+            <option value="disabled">disabled</option>
+            <option value="hidden">hidden</option>
+            <option value="data-bs-toggle">data-bs-toggle</option>
+        </select>
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Optional node name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="davis-update">
+    <p>Update existing HTML elements dynamically.</p>
+    
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">any</span></dt>
+        <dd>The new value to set for the element/attribute.</dd>
+        <dt class="optional">selector <span class="property-type">string</span></dt>
+        <dd>CSS selector to find the element (if not set in node config).</dd>
+    </dl>
+    
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>_davis <span class="property-type">object</span></dt>
+        <dd>Davis command object for front-end processing.</dd>
+    </dl>
+    
+    <h3>Modes</h3>
+    <ul>
+        <li><b>Update</b> - Updates the specified attribute</li>
+        <li><b>Replace</b> - Replaces the entire element</li>
+        <li><b>Remove</b> - Removes the element from DOM</li>
+        <li><b>Add/Remove/Toggle Class</b> - Modify CSS classes</li>
+    </ul>
+</script>

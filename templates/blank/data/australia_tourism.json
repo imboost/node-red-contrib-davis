@@ -1,0 +1,42 @@
+[
+    {
+        "state": "New South Wales",
+        "visitors": 4500,
+        "avg_stay_days": 4.5
+    },
+    {
+        "state": "Victoria",
+        "visitors": 3800,
+        "avg_stay_days": 3.8
+    },
+    {
+        "state": "Queensland",
+        "visitors": 3200,
+        "avg_stay_days": 5.2
+    },
+    {
+        "state": "Western Australia",
+        "visitors": 1500,
+        "avg_stay_days": 4.1
+    },
+    {
+        "state": "South Australia",
+        "visitors": 1200,
+        "avg_stay_days": 3.5
+    },
+    {
+        "state": "Tasmania",
+        "visitors": 800,
+        "avg_stay_days": 3.2
+    },
+    {
+        "state": "Northern Territory",
+        "visitors": 400,
+        "avg_stay_days": 4.8
+    },
+    {
+        "state": "Australian Capital Territory",
+        "visitors": 350,
+        "avg_stay_days": 2.5
+    }
+]

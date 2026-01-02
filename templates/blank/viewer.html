@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davis - Dashboard Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/ui-builder.css"> <!-- Reusing builder styles for layout grid -->
+    <style>
+        /* Viewer Specific Overrides */
+        html,
+        body {
+            height: auto !important;
+            overflow-y: auto !important;
+            background-color: #f8fafc;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .drop-zone-root {
+            padding-bottom: 0 !important;
+        }
+
+        .viewer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* PIN Modal Overlay */
+        .pin-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .pin-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .pin-input {
+            width: 200px;
+            padding: 12px;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 4px;
+            margin: 20px 0;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .pin-input:focus {
+            border-color: #3b82f6;
+        }
+
+        .error-msg {
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="preview-mode">
+
+    <!-- PIN Protection UI -->
+    <div id="pinOverlay" class="pin-overlay" style="display: none;">
+        <div class="pin-card">
+            <h2>Protected Dashboard</h2>
+            <p style="color: #64748b; margin-top: 8px;">Please enter PIN to view this content</p>
+
+            <input type="password" id="pinInput" class="pin-input" placeholder="****" maxlength="6">
+
+            <div>
+                <button class="btn btn-primary" id="submitPinBtn">Access Dashboard</button>
+            </div>
+            <p id="pinError" class="error-msg">Incorrect PIN</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div id="viewerContent" class="viewer-container" style="display: none;">
+        <!-- Header -->
+
+
+        <!-- Canvas Root -->
+        <div id="dropZoneRoot" class="drop-zone-root">
+            <!-- Layout rendered here -->
+        </div>
+
+        <!-- Footer Info -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 8px; padding-top: 24px; padding-bottom: 40px; color: #94a3b8; font-size: 13px;">
+            <div id="pageTitle" style="font-weight: 500; color: #64748b;">Dashboard</div>
+            <span>&bull;</span>
+            <div id="lastUpdated"></div>
+        </div>
+    </div>
+
+    <div id="loadingState" style="text-align: center; padding-top: 100px; color: #94a3b8;">
+        Loading...
+    </div>
+
+    <!-- Scripts -->
+    <script src="./echarts/echarts.min.js"></script>
+    <script src="./js/nowdb.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/chartConfig.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/viewer.js"></script>
+</body>
+
+</html>

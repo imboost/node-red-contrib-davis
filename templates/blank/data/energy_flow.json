@@ -1,0 +1,67 @@
+[
+    {
+        "Source": "Solar",
+        "Target": "Renewable",
+        "Value": 40
+    },
+    {
+        "Source": "Wind",
+        "Target": "Renewable",
+        "Value": 30
+    },
+    {
+        "Source": "Hydro",
+        "Target": "Renewable",
+        "Value": 20
+    },
+    {
+        "Source": "Coal",
+        "Target": "Fossil Fuel",
+        "Value": 60
+    },
+    {
+        "Source": "Oil",
+        "Target": "Fossil Fuel",
+        "Value": 50
+    },
+    {
+        "Source": "Gas",
+        "Target": "Fossil Fuel",
+        "Value": 40
+    },
+    {
+        "Source": "Renewable",
+        "Target": "Electricity Grid",
+        "Value": 80
+    },
+    {
+        "Source": "Fossil Fuel",
+        "Target": "Electricity Grid",
+        "Value": 100
+    },
+    {
+        "Source": "Fossil Fuel",
+        "Target": "Transport",
+        "Value": 40
+    },
+    {
+        "Source": "Electricity Grid",
+        "Target": "Residential",
+        "Value": 60
+    },
+    {
+        "Source": "Electricity Grid",
+        "Target": "Industry",
+        "Value": 80
+    },
+    {
+        "Source": "Electricity Grid",
+        "Target": "Commercial",
+        "Value": 40
+    },
+    {
+        "Source": "Transport",
+        "Target": "Losses",
+        "Value": 30
+    }
+]

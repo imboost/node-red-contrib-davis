@@ -1,0 +1,122 @@
+/* Davis Template - Custom Styles */
+/* Extends Bootstrap 5 with custom enhancements */
+
+/* Body gradient */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    min-height: 100vh;
+}
+
+/* Card enhancements */
+.card {
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Message container */
+#msg-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bs-primary) transparent;
+}
+
+#msg-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#msg-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#msg-container::-webkit-scrollbar-thumb {
+    background-color: var(--bs-primary);
+    border-radius: 3px;
+}
+
+/* Alert animations */
+.alert {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pre/Code styling */
+pre {
+    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    background: rgba(0, 0, 0, 0.02);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin: 0;
+}
+
+/* Button animations */
+.btn {
+    transition: all 0.2s ease;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Status badge pulse */
+.badge {
+    transition: all 0.3s ease;
+}
+
+.badge.bg-success {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Header styling */
+header h1 {
+    background: linear-gradient(135deg, var(--bs-primary), #6f42c1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Form control focus */
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.15);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .display-6 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,567 @@
+/* UI Builder Specific Styles */
+
+.builder-container {
+    display: flex;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    background-color: #f7fafc;
+}
+
+/* Sidebar */
+.builder-sidebar {
+    width: 250px;
+    background: #fff;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.sidebar-header {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.component-category {
+    padding: 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.category-title {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.component-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.draggable-item {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px 8px;
+    text-align: center;
+    cursor: grab;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.draggable-item:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
+}
+
+.draggable-item:active {
+    cursor: grabbing;
+}
+
+.item-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    color: #64748b;
+}
+
+.item-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.draggable-item span {
+    font-size: 11px;
+    color: #334155;
+    font-weight: 500;
+    display: block;
+}
+
+/* Canvas */
+.builder-canvas {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background-image:
+        linear-gradient(45deg, #eef2f6 25%, transparent 25%),
+        linear-gradient(-45deg, #eef2f6 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #eef2f6 75%),
+        linear-gradient(-45deg, transparent 75%, #eef2f6 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    position: relative;
+}
+
+.drop-zone-root {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.canvas-empty-state {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #94a3b8;
+    pointer-events: none;
+    font-size: 16px;
+}
+
+/* Grid System in Canvas */
+.builder-row {
+    display: flex;
+    background: #fff;
+    min-height: 150px;
+    margin-bottom: 16px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 4px;
+    position: relative;
+    transition: border 0.2s;
+}
+
+.builder-row:hover {
+    border-color: #94a3b8;
+}
+
+.builder-row.highlight-drop {
+    border-color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.02);
+}
+
+
+/* Fix: Ensure columns handle flex correctly */
+.builder-column {
+    border-right: 1px dashed #e2e8f0;
+    min-height: 100%;
+    padding: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    /* Critical for flex items to shrink properly */
+    box-sizing: border-box;
+    /* Explicitly ensure border-box */
+}
+
+.builder-column:last-child {
+    border-right: none;
+}
+
+.builder-column.highlight-drop {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Components on Canvas */
+.rendered-component {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rendered-component:hover {
+    border-color: #3b82f6;
+}
+
+.component-header {
+    display: none;
+    /* Show on hover? */
+    padding: 4px 8px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #64748b;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.rendered-component:hover .component-header {
+    display: flex;
+}
+
+.remove-btn {
+    color: #ef4444;
+    cursor: pointer;
+}
+
+.component-content {
+    min-height: auto;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Chart Specifics */
+.chart-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 50px;
+    /* Safety min height */
+    position: relative;
+}
+
+/* Form Placeholders */
+.form-placeholder {
+    width: 100%;
+    text-align: left;
+}
+
+.form-placeholder .input-group {
+    margin-bottom: 12px;
+}
+
+.form-placeholder label {
+    display: block;
+    font-size: 12px;
+    color: #475569;
+    margin-bottom: 4px;
+}
+
+.form-placeholder input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    background: #f8fafc;
+}
+
+/* List Placeholders */
+.list-placeholder {
+    width: 100%;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.list-avatar {
+    width: 32px;
+    height: 32px;
+    background: #e2e8f0;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.list-text {
+    height: 8px;
+    width: 60%;
+    background: #e2e8f0;
+    border-radius: 4px;
+}
+
+/* Drop Preview Indicator */
+.drop-indicator {
+    height: 4px;
+    background: #3b82f6;
+    border-radius: 2px;
+    margin: 4px 0;
+    display: none;
+}
+
+/* Modal Grid */
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.chart-card-select {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chart-card-select:hover {
+    border-color: #3b82f6;
+    background: #f0f9ff;
+}
+
+.chart-card-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #334155;
+}
+
+.chart-card-meta {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Add Item Button in Column */
+.add-item-zone {
+    border: 1px dashed #cbd5e1;
+    border-radius: 4px;
+    padding: 8px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: auto;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-item-zone:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    background: white;
+}
+
+/* Right Configuration Sidebar */
+.config-sidebar {
+    width: 300px;
+    background: #fff;
+    border-left: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    overflow-y: auto;
+}
+
+.config-content {
+    padding: 16px;
+}
+
+.empty-config {
+    color: #94a3b8;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+.config-group {
+    margin-bottom: 20px;
+}
+
+.config-group-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.style-input-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+}
+
+.style-label {
+    width: 70px;
+    font-size: 13px;
+    color: #475569;
+}
+
+.style-input {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 13px;
+    width: 60px;
+    /* Force small inputs */
+}
+
+/* Selected State */
+.rendered-component.selected,
+.builder-row.selected,
+.builder-column.selected {
+    outline: 2px solid #3b82f6;
+    outline-offset: -1px;
+}
+
+/* Preview Mode */
+.preview-mode .builder-sidebar,
+.preview-mode .config-sidebar {
+    display: none !important;
+}
+
+.preview-mode .builder-container {
+    background-color: #f8fafc;
+    /* Match dashboard bg */
+}
+
+.preview-mode .builder-canvas {
+    padding: 20px;
+    background-image: none;
+    max-width: 1200px;
+    /* Optional constraint */
+    margin: 0 auto;
+}
+
+.preview-mode .builder-row {
+    border: none;
+    background: transparent;
+    margin-bottom: 0;
+}
+
+.preview-mode .builder-column {
+    border-right: none;
+    padding: 0 10px;
+}
+
+/* Hide Builder Controls */
+.preview-mode .remove-btn,
+.preview-mode .component-header,
+.preview-mode .add-item-zone,
+.preview-mode .canvas-empty-state {
+    display: none !important;
+}
+
+.preview-mode .rendered-component {
+    border: none;
+    margin-bottom: 20px;
+    background: transparent;
+}
+
+.preview-mode .rendered-component:hover {
+    border-color: transparent;
+}
+
+/* Ensure content looks right */
+.preview-mode .component-content {
+    /* If we want card look for charts/tables? */
+    /* background: #fff; */
+    /* border-radius: 8px; */
+}
+
+/* Disable drag interactions */
+.preview-mode .draggable-item,
+.preview-mode .builder-column,
+.preview-mode .rendered-component {
+    cursor: default;
+    pointer-events: auto;
+    /* Allow interacting with charts/buttons */
+    user-select: auto;
+}
+
+/* Sidebar Tabs */
+.sidebar-tabs {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+    padding: 0;
+    /* User request */
+}
+
+.sidebar-tab {
+    flex: 1;
+    padding: 10px 0;
+    /* Reduced padding, top/bottom only */
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    text-align: center;
+    /* Ensure centered */
+}
+
+.sidebar-tab.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+    background: #fff;
+}
+
+.sidebar-tab:hover:not(.active) {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.sidebar-panel {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.sidebar-panel.active {
+    display: block;
+}
+
+/* Layer Tree */
+.tree-root {
+    padding: 12px 0;
+}
+
+.tree-node {
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+    color: #334155;
+    border-left: 2px solid transparent;
+    transition: all 0.1s;
+    user-select: none;
+}
+
+.tree-node:hover {
+    background: #f1f5f9;
+}
+
+.tree-node.selected {
+    background: #eff6ff;
+    color: #2563eb;
+    border-left-color: #3b82f6;
+}
+
+.tree-node .node-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tree-node.selected .node-icon {
+    color: #3b82f6;
+}
+
+.tree-node .node-label {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tree-indent {
+    width: 16px;
+    height: 100%;
+    display: inline-block;
+    flex-shrink: 0;
+}

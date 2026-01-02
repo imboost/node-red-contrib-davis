@@ -1,0 +1,591 @@
+/* Home Page Styles - Redesigned */
+
+.home-page-body {
+    background: var(--color-bg-tertiary) !important;
+    overflow-y: auto !important;
+}
+
+.home-container {
+    max-width: 100%;
+    margin: 0;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+/* White Page Aesthetic */
+.catalog-page {
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+/* Header Section */
+.catalog-header {
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.catalog-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: -0.5px;
+}
+
+.catalog-header p {
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
+    max-width: 500px;
+}
+
+.mini-stat {
+    text-align: right;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Navbar */
+/* Navigation Tabs - Pill Style */
+.catalog-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border-bottom: none;
+    padding: 0 var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.nav-left {
+    background: var(--color-bg-primary);
+    padding: 4px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-light);
+    display: inline-flex;
+    gap: var(--spacing-xs);
+}
+
+.nav-btn {
+    padding: 6px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+    border: none;
+}
+
+.nav-btn:hover {
+    color: var(--color-text-primary);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.nav-btn.active {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-btn.active::after {
+    display: none;
+    /* Remove underline */
+}
+
+/* Card Actions (Grid View) - Correctly Styled */
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+    /* Push to right */
+}
+
+.card-actions .action-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    color: var(--color-text-tertiary);
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.card-actions .action-btn:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-primary);
+    border-color: var(--color-border-light);
+}
+
+.card-actions .delete-dash:hover {
+    background: var(--color-danger-bg, #fef2f2);
+    color: var(--color-danger);
+    border-color: var(--color-danger-light, #fca5a5);
+}
+
+.card-actions svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* List View Actions - Consistent Styling */
+.list-actions .action-btn {
+    padding: 6px 12px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    border: 1px solid var(--color-border-light);
+    background: white;
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.list-actions .action-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-bg-tertiary);
+    text-decoration: none;
+}
+
+.list-actions .delete-dash {
+    /* Reset to text button style */
+    width: auto;
+    padding: 6px 12px;
+}
+
+/* Standardize icon size for all card action buttons */
+.card-actions svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+.view-options {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.view-btn {
+    background: none;
+    border: none;
+    padding: var(--spacing-xs);
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.view-btn:hover {
+    background: var(--color-bg-tertiary);
+}
+
+.view-btn.active {
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+}
+
+.view-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Dashboard List Section */
+.dashboard-list-section {
+    padding: var(--spacing-xl);
+    flex: 1;
+}
+
+/* Dashboard List Container */
+.dashboard-grid,
+.dashboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* Dashboard Card */
+.dashboard-card {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+    background: white;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.card-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--color-bg-tertiary);
+    color: var(--color-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.dashboard-card:hover .card-icon {
+    background: var(--color-primary);
+    color: white;
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.card-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.card-info {
+    flex: 1;
+}
+
+.card-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.card-date {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    margin-top: 4px;
+    display: block;
+}
+
+.card-stats {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xs);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.stat-item svg {
+    width: 14px;
+    height: 14px;
+    color: var(--color-text-tertiary);
+}
+
+/* List View Style */
+.list-view .dashboard-card {
+    flex-direction: row;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.list-view .card-header {
+    flex: 2;
+}
+
+.list-view .card-stats {
+    flex: 1;
+    justify-content: flex-end;
+    margin-top: 0;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--color-bg-tertiary);
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+    padding: 0 var(--spacing-lg);
+    width: 100%;
+    max-width: 400px;
+    transition: all var(--transition-fast);
+}
+
+.search-bar:focus-within {
+    background: white;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.search-bar input {
+    background: none;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    flex: 1;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+.search-bar svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-tertiary);
+}
+
+/* Empty State */
+.empty-status {
+    padding: var(--spacing-xl);
+    display: flex;
+    /* Ensure flex for centering */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-primary);
+    border-radius: var(--radius-lg);
+    border: 2px dashed var(--color-border);
+    margin-top: var(--spacing-xl);
+}
+
+.empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: var(--color-bg-tertiary);
+    border-radius: 50%;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--spacing-md);
+}
+
+.empty-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.empty-status h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.empty-status p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    max-width: 400px;
+}
+
+/* Animation */
+.dashboard-card {
+    animation: scaleIn var(--transition-normal);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home-container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .catalog-page {
+        border-radius: 0;
+        border: none;
+    }
+
+    .catalog-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    .mini-stat {
+        text-align: left;
+    }
+}
+
+/* New List View Styles */
+.dashboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.dashboard-item-row {
+    background: white;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.dashboard-item-row:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+    transform: translateX(2px);
+}
+
+.list-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dashboard-item-row:hover .list-icon {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.list-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.list-info {
+    flex: 1;
+}
+
+.list-title {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+}
+
+.list-meta {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+}
+
+.list-status {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.list-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    opacity: 1;
+    /* Always visible */
+    transition: none;
+}
+
+/* Hover rule removed/neutralized */
+.dashboard-item-row:hover .list-actions {
+    opacity: 1;
+}
+
+/* Card Badge */
+.card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(16, 185, 129, 0.9);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-preview {
+    position: relative;
+    height: 140px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-bg-tertiary);
+}
+
+/* Badge Style */
+.badge-published {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--color-success-light);
+    color: var(--color-success);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Action Buttons in List */
+.list-actions .action-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.list-actions .action-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: white;
+}
+
+.list-actions .delete-dash:hover {
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}

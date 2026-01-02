@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davis - UI Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/ui-builder.css">
+</head>
+
+<body style="display: none;">
+    <!-- Top Toolbar -->
+    <header class="toolbar">
+        <div class="toolbar-left">
+            <a href="home.html" class="logo" style="text-decoration: none;">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7 14L11 10L15 14L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="logo-text">Davis</span>
+            </a>
+        </div>
+        <div class="toolbar-center">
+            <span class="query-title">Untitled Page</span>
+        </div>
+        <div class="toolbar-right" style="display: flex; align-items: center; gap: 8px;">
+            <button class="btn btn-secondary" id="previewBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-right: 4px;">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
+                Preview
+            </button>
+            <button class="btn btn-secondary" id="publishBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-right: 4px;">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Publish
+            </button>
+            <button class="btn btn-primary" id="saveLayoutBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-right: 4px;">
+                    <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
+                    <polyline points="17,21 17,13 7,13 7,21" />
+                    <polyline points="7,3 7,8 15,8" />
+                </svg>
+                Save
+            </button>
+        </div>
+    </header>
+
+    <div class="builder-container">
+        <!-- Sidebar -->
+        <aside class="builder-sidebar">
+            <div class="sidebar-header">
+                <h3>Components</h3>
+            </div>
+
+            <div class="component-category">
+                <div class="category-title">Layout</div>
+                <div class="component-grid">
+                    <div class="draggable-item" draggable="true" data-type="row">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                            </svg>
+                        </div>
+                        <span>Container</span>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-type="col-6">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="9" height="18" rx="1" />
+                                <rect x="12" y="3" width="9" height="18" rx="1" />
+                            </svg>
+                        </div>
+                        <span>2 Columns</span>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-type="col-4">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="6" height="18" rx="1" />
+                                <rect x="9" y="3" width="6" height="18" rx="1" />
+                                <rect x="15" y="3" width="6" height="18" rx="1" />
+                            </svg>
+                        </div>
+                        <span>3 Columns</span>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-type="col-3">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="4.5" height="18" rx="1" />
+                                <rect x="7.5" y="3" width="4.5" height="18" rx="1" />
+                                <rect x="12" y="3" width="4.5" height="18" rx="1" />
+                                <rect x="16.5" y="3" width="4.5" height="18" rx="1" />
+                            </svg>
+                        </div>
+                        <span>4 Columns</span>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-type="col-2-4">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="3.6" height="18" rx="1" />
+                                <rect x="6.6" y="3" width="3.6" height="18" rx="1" />
+                                <rect x="10.2" y="3" width="3.6" height="18" rx="1" />
+                                <rect x="13.8" y="3" width="3.6" height="18" rx="1" />
+                                <rect x="17.4" y="3" width="3.6" height="18" rx="1" />
+                            </svg>
+                        </div>
+                        <span>5 Columns</span>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-type="col-2">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="3" height="18" rx="1" />
+                                <rect x="6" y="3" width="3" height="18" rx="1" />
+                                <rect x="9" y="3" width="3" height="18" rx="1" />
+                                <rect x="12" y="3" width="3" height="18" rx="1" />
+                                <rect x="15" y="3" width="3" height="18" rx="1" />
+                                <rect x="18" y="3" width="3" height="18" rx="1" />
+                            </svg>
+                        </div>
+                        <span>6 Columns</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-category">
+                <div class="category-title">Elements</div>
+                <div class="component-grid">
+
+                    <div class="draggable-item" draggable="true" data-type="heading">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 4v16" />
+                                <path d="M18 4v16" />
+                                <path d="M6 12h12" />
+                            </svg>
+                        </div>
+                        <span>Heading</span>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-type="text">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                            </svg>
+                        </div>
+                        <span>Text</span>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-type="button">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="8" width="18" height="8" rx="1" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
+                            </svg>
+                        </div>
+                        <span>Button</span>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-type="combobox">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="6" width="18" height="12" rx="2" />
+                                <path d="M16 12l-4 4-4-4" />
+                            </svg>
+                        </div>
+                        <span>Combobox</span>
+                    </div>
+
+                    <div class="draggable-item" draggable="true" data-type="line">
+                        <div class="item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="4" y1="12" x2="20" y2="12" />
+                            </svg>
+                        </div>
+                        <span>Line</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="component-category">
+                <div class="category-title">Saved Charts</div>
+                <div class="component-grid" id="savedChartsGroup">
+                    <!-- Populated via JS -->
+                    <div class="empty-state-sidebar" style="grid-column: span 2; font-size: 11px; color: #94a3b8; text-align: center; padding: 10px;">
+                        No saved charts found
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Canvas -->
+        <main class="builder-canvas">
+            <div class="canvas-empty-state" id="canvasEmptyState">
+                <p>Drag Layout elements here to start building</p>
+            </div>
+            <div id="dropZoneRoot" class="drop-zone-root">
+                <!-- Structure goes here -->
+            </div>
+        </main>
+
+        <!-- Right Configuration Sidebar -->
+        <aside class="config-sidebar" id="configSidebar">
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" data-tab="layers">Layers</button>
+                <button class="sidebar-tab" data-tab="settings">Settings</button>
+            </div>
+
+            <div id="layersPanel" class="sidebar-panel active">
+                <div class="tree-root" id="layerTreeRoot">
+                    <!-- Tree items will be rendered here -->
+                    <div class="empty-config">No layers found</div>
+                </div>
+            </div>
+
+            <div id="configPanel" class="config-content sidebar-panel">
+                <div class="empty-config">Select an element to configure</div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Chart Selection Modal -->
+    <div class="modal-overlay" id="chartSelectModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h3>Select Chart</h3>
+                <button class="modal-close" id="closeChartSelectModal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="chart-grid" id="chartSelectGrid">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Publish Settings Modal -->
+    <div class="modal-overlay" id="publishModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Publish Settings</h3>
+                <button class="modal-close" id="closePublishModal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label style="display:flex; align-items:center; gap:8px; font-weight:600; cursor:pointer;">
+                        <input type="checkbox" id="publishToggle">
+                        Enable Public Access
+                    </label>
+                    <p style="font-size:12px; color:#64748b; margin-top:4px; margin-left:24px;">
+                        Allow anyone with the link to view this dashboard.
+                    </p>
+                </div>
+
+                <div class="form-group" id="pinGroup" style="display:none; margin-bottom: 20px;">
+                    <label style="font-weight:600; font-size:13px; display:block; margin-bottom:6px;">PIN Protection (Optional)</label>
+                    <input type="text" id="publishPin" placeholder="Leave empty for open access" class="input-text" style="width:100%; padding:8px; border:1px solid #e2e8f0; border-radius:4px;">
+                    <p style="font-size:11px; color:#64748b; margin-top:4px;">
+                        If set, viewers must enter this PIN to access the dashboard.
+                    </p>
+                </div>
+
+                <div class="form-group" id="linkGroup" style="display:none;">
+                    <label style="font-weight:600; font-size:13px; display:block; margin-bottom:6px;">Public Link</label>
+                    <div style="display:flex; gap:8px;">
+                        <input type="text" id="publicLink" readonly class="input-text" style="flex:1; padding:8px; border:1px solid #e2e8f0; border-radius:4px; background:#f8fafc; color:#475569;">
+                        <button class="btn btn-secondary" id="copyLinkBtn">Copy</button>
+                    </div>
+                    <a href="#" target="_blank" id="openLinkBtn" style="display:inline-block; margin-top:8px; font-size:12px; color:#3b82f6; text-decoration:none;">Open in new tab &rarr;</a>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding:16px; border-top:1px solid #e2e8f0; text-align:right;">
+                <button class="btn btn-primary" id="savePublishBtn">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmDeleteModal" class="modal-overlay">
+        <div class="modal modal-sm">
+            <div class="modal-body confirm-dialog">
+                <div class="confirm-dialog-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        <line x1="12" y1="9" x2="12" y2="13" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                </div>
+                <h3 class="confirm-dialog-title">Delete Component?</h3>
+                <p class="confirm-dialog-message">Are you sure you want to delete this item? This action cannot be undone.</p>
+                <div class="confirm-dialog-actions">
+                    <button class="btn btn-secondary" onclick="uiBuilder.closeConfirmModal()">Cancel</button>
+                    <button class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./echarts/echarts.min.js"></script>
+    <script src="./js/nowdb.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/chartConfig.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/uiBuilder.js"></script>
+</body>
+
+</html>

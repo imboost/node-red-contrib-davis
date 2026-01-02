@@ -1,0 +1,22 @@
+[
+    {
+        "Metric": "Efficiency",
+        "Value": 78,
+        "Target": 100
+    },
+    {
+        "Metric": "Satisfaction",
+        "Value": 92,
+        "Target": 100
+    },
+    {
+        "Metric": "Uptime",
+        "Value": 99.9,
+        "Target": 100
+    },
+    {
+        "Metric": "Utilization",
+        "Value": 65,
+        "Target": 100
+    }
+]

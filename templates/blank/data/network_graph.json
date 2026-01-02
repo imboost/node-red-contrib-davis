@@ -1,0 +1,50 @@
+[
+    {
+        "Source": "Project A",
+        "Target": "Task 1"
+    },
+    {
+        "Source": "Project A",
+        "Target": "Task 2"
+    },
+    {
+        "Source": "Project A",
+        "Target": "Task 3"
+    },
+    {
+        "Source": "Task 1",
+        "Target": "Subtask 1.1"
+    },
+    {
+        "Source": "Task 1",
+        "Target": "Subtask 1.2"
+    },
+    {
+        "Source": "Project B",
+        "Target": "Task 4"
+    },
+    {
+        "Source": "Project B",
+        "Target": "Task 5"
+    },
+    {
+        "Source": "Task 4",
+        "Target": "Subtask 4.1"
+    },
+    {
+        "Source": "Task 4",
+        "Target": "Task 2"
+    },
+    {
+        "Source": "Team Lead",
+        "Target": "Project A"
+    },
+    {
+        "Source": "Team Lead",
+        "Target": "Project B"
+    },
+    {
+        "Source": "Manager",
+        "Target": "Team Lead"
+    }
+]
