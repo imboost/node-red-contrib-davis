@@ -94,32 +94,15 @@
 </script>
 
 <script type="text/html" data-help-name="davis">
-    <p>Easily create Bootstrap-based web UIs for Node-RED.</p>
-    
-    <h3>Inputs</h3>
-    <dl class="message-properties">
-        <dt>payload <span class="property-type">any</span></dt>
-        <dd>The message payload to send to the connected web clients.</dd>
-        <dt class="optional">topic <span class="property-type">string</span></dt>
-        <dd>An optional topic for the message.</dd>
-    </dl>
-    
-    <h3>Outputs</h3>
-    <dl class="message-properties">
-        <dt>payload <span class="property-type">any</span></dt>
-        <dd>Messages received from connected web clients.</dd>
-        <dt>_socketId <span class="property-type">string</span></dt>
-        <dd>The Socket.IO client ID that sent the message.</dd>
-    </dl>
-    
-    <h3>Details</h3>
-    <p>Davis provides a simple way to create Bootstrap-based web user interfaces 
+    <p>Davis provides a simple way to create Data Visualization on web user interfaces 
     that communicate in real-time with your Node-RED flows.</p>
     
+    <h3>Details</h3>
     <h4>Features:</h4>
     <ul>
-        <li>Bootstrap 5 framework included</li>
-        <li>Bootstrap Icons support</li>
+        <li>JSON Data Reader</li>
+        <li>JSON Data Query (Filter, Sort and Limit)</li>
+        <li>Multiple Chart Visualization (Apache ECharts 6.0)</li>
         <li>Real-time bidirectional WebSocket communication</li>
         <li>Automatic static file serving</li>
     </ul>
@@ -127,4 +110,8 @@
     <h4>File Location:</h4>
     <p>Your web files are stored in:<br>
     <code>~/.node-red/davis/{url}/src/</code></p>
+
+    <h4>JSON Data File Location:</h4>
+    <p>Your JSON data files are stored in:<br>
+    <code>~/.node-red/davis/{url}/src/data/</code></p>
 </script>
